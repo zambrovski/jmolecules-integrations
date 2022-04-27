@@ -203,7 +203,7 @@ public class JMoleculesSpringJpaPlugin extends JMoleculesPluginSupport {
 				.with(new ReferenceTypePackageNamingStrategy(field.getDeclaringType()))
 				.subclass(superType)
 				.annotateType(PluginUtils.getAnnotation(jpa.getAnnotation("Converter")))
-				.defineConstructor(Visibility.PACKAGE_PRIVATE)
+				.defineConstructor(Visibility.PUBLIC)
 				.intercept(MethodCall.invoke(getConverterConstructor()).onSuper().with(idType.asErasure()))
 				.make();
 
